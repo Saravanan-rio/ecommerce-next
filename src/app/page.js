@@ -8,17 +8,27 @@ import SearchBar from "./components/SearchBar";
 //   return res.json();
 // }
 
+// async function getProducts() {
+//   const res = await fetch(
+//     "https://fakestoreapi.com/products",
+//     { cache: "no-store" }
+//   );
+
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch products");
+//   }
+
+//   return res.json(); // ← DO NOT use JSON.parse manually
+// }
+
 async function getProducts() {
-  const res = await fetch(
-    "https://fakestoreapi.com/products",
-    { cache: "no-store" }
-  );
+  const res = await fetch("http://localhost:3000/api/products", {
+    cache: "no-store"
+  });
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
-  }
+  if (!res.ok) return [];
 
-  return res.json(); // ← DO NOT use JSON.parse manually
+  return res.json();
 }
 
 
