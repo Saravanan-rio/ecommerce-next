@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useCart } from "../context/cartContext";
-import { ShoppingCart } from "lucide-react";
 
 export default function Navbar() {
   const { cart } = useCart();
@@ -27,8 +26,8 @@ export default function Navbar() {
 
       {/* Cart */}
       <Link href="/cart" className="cart-container">
-        <ShoppingCart size={20} color="white" />
-        <span className="cart-badge">{totalItems}</span>
+        {/* <span className="cart-badge">{totalItems}</span> */}
+        🛒 <span className="text-primary">Cart ({totalItems})</span>
       </Link>
     </nav>
   );

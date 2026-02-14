@@ -34,15 +34,41 @@ export default function CartPage() {
           </div>
 
           <div className="cart-right">
-            <input
+            {/* <input
               type="number"
               value={item.quantity}
               min="1"
               onChange={(e) =>
                 updateQuantity(item.id, Number(e.target.value))
               }
-            />
+            /> */}
+            <div className="quantity-control">
+              <button
+                className="qty-btn"
+                onClick={() =>
+                  item.quantity > 1 &&
+                  updateQuantity(item.id, item.quantity - 1)
+                }
+              >
+                −
+              </button>
 
+              <input
+                type="text"
+                value={item.quantity}
+                readOnly
+                className="qty-input"
+              />
+
+              <button
+                className="qty-btn"
+                onClick={() =>
+                  updateQuantity(item.id, item.quantity + 1)
+                }
+              >
+                +
+              </button>
+            </div>
             <button
               className="btn btn-danger"
               onClick={() => removeFromCart(item.id)}

@@ -22,7 +22,7 @@ import SearchBar from "./components/SearchBar";
 // }
 
 async function getProducts() {
-  const res = await fetch("http://localhost:3000/api/products", {
+  const res = await fetch("https://fakestoreapi.com/products", {
     cache: "no-store"
   });
 
